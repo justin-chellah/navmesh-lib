@@ -1,0 +1,142 @@
+"Games"
+{
+    "left4dead2"
+    {
+        "Offsets"
+        {
+            "CNavArea::m_center"
+            {
+                "windows"   "44"
+                "linux"     "44"
+            }
+
+            "CNavArea::m_marker"
+            {
+                "windows"   "60"
+                "linux"     "60"
+            }
+
+            "CNavArea::m_attributeFlags"
+            {
+                "windows"   "84"
+                "linux"     "84"
+            }
+
+            "CNavArea::m_isUnderwater"
+            {
+                "windows"   "164"
+                "linux"     "164"
+            }
+
+            "TerrorNavArea::m_fPotentiallyVisibleToSurvivorFlags"
+            {
+                "windows"   "125"
+                "linux"     "125"
+            }
+
+            "TerrorNavArea::m_spawnAttributeFlags"
+            {
+                "windows"   "296"
+                "linux"     "300"
+            }
+
+            "TerrorNavMesh::m_flMaxFlowDistance"
+            {
+                "windows"   "1528"
+                "linux"     "1524"
+            }
+        }
+
+        "Addresses"
+        {
+            "TerrorNavMesh instance"
+            {
+                "windows"
+                {
+                    "signature" "CDirectorVersusMode::UpdateVersusBossSpawning"
+                    "read" "284"
+                }
+
+                "linux"
+                {
+                    "signature" "TheNavMesh"
+                }
+
+                "read" "0"
+            }
+
+            "CNavArea::m_masterMarker"
+            {
+                "windows"
+                {
+                    "signature" "FindGhostSpawnPosition"
+                    "read" "151"
+                }
+
+                "linux"
+                {
+                    "signature" "CNavArea::m_masterMarker"
+                }
+            }
+        }
+
+        "Signatures"
+        {
+            "CDirectorVersusMode::UpdateVersusBossSpawning"
+            {
+                "library"   "server"
+                "windows"   "\x55\x8B\xEC\x83\xEC\x44\x57\x8B\xF9\x8B\x0D\x2A\x2A\x2A\x2A"
+                // 55 8B EC 83 EC 44 57 8B F9 8B 0D ? ? ? ?
+
+                "linux"     "@_ZN19CDirectorVersusMode24UpdateVersusBossSpawningEv"
+            }
+
+            "TheNavMesh"
+            {
+                "library"   "server"
+                "linux"     "@TheNavMesh"
+            }
+
+            "FindGhostSpawnPosition"
+            {
+                "library"   "server"
+                "windows"   "\x55\x8B\xEC\x83\xEC\x0C\x56\xE8\x2A\x2A\x2A\x2A\x84\xC0"
+                // 55 8B EC 83 EC 0C 56 E8 ? ? ? ? 84 C0
+            }
+
+            "CNavArea::m_masterMarker"
+            {
+                "library"   "server"
+                "linux"     "@_ZN8CNavArea14m_masterMarkerE"
+            }
+
+            // CNavArea *CNavMesh::GetNavArea( const Vector &pos, float beneathLimit ) const
+            "CNavMesh::GetNavArea"
+            {
+                "library"   "server"
+                "windows"   "\x55\x8B\xEC\x83\xEC\x18\x83\x79\x1C\x00"
+                // 55 8B EC 83 EC 18 83 79 1C 00
+
+                "linux"     "@_ZNK8CNavMesh10GetNavAreaERK6Vectorf"
+            }
+
+            "TerrorNavArea::GetNextEscapeStep"
+            {
+                "library"   "server"
+                "windows"   "\x55\x8B\xEC\x83\xEC\x48\xF3\x0F\x10\x05\x2A\x2A\x2A\x2A"
+                // 55 8B EC 83 EC 48 F3 0F 10 05 ? ? ? ?
+
+                "linux"     "@_ZNK13TerrorNavArea17GetNextEscapeStepEP15NavTraverseType"
+            }
+
+            "TerrorNavArea::IsValidForWanderingPopulation"
+            {
+                "library"   "server"
+                "windows"   "\x56\x8B\xF1\xF6\x46\x54\x03"
+                // 56 8B F1 F6 46 54 03
+
+                "linux"     "@_ZNK13TerrorNavArea29IsValidForWanderingPopulationEv"
+            }
+        }
+    }
+}
